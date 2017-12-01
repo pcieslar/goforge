@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/pcieslar/goforge/lib/flight"
-	"github.com/pcieslar/goforge-core/xsrf"
+	"github.com/pcieslar/goforge/core/xsrf"
 )
 
 // TestRace tests for race conditions.

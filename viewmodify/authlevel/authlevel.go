@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/pcieslar/goforge/lib/flight"
-	"github.com/pcieslar/goforge-core/view"
+	"github.com/pcieslar/goforge/core/view"
 )
 
 // Modify sets AuthLevel in the template to auth if the user is authenticated.

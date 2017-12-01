@@ -8,8 +8,8 @@ import (
 	"github.com/pcieslar/goforge/lib/boot"
 	"github.com/pcieslar/goforge/lib/env"
 
-	"github.com/pcieslar/goforge-core/router"
-	"github.com/pcieslar/goforge-core/server"
+	"github.com/pcieslar/goforge/core/router"
+	"github.com/pcieslar/goforge/core/server"
 )
 
 // init sets runtime settings.

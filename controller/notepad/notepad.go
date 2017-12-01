@@ -8,8 +8,8 @@ import (
 	"github.com/pcieslar/goforge/middleware/acl"
 	"github.com/pcieslar/goforge/model/note"
 
-	"github.com/pcieslar/goforge-core/pagination"
-	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge/core/pagination"
+	"github.com/pcieslar/goforge/core/router"
 )
 
 var (

@@ -9,7 +9,7 @@ import (
 	"github.com/pcieslar/goforge/controller/status"
 	"github.com/pcieslar/goforge/lib/flight"
 
-	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge/core/router"
 )
 
 // Load the routes.

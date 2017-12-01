@@ -9,10 +9,10 @@ import (
 
 	"github.com/pcieslar/goforge/lib/env"
 
-	"github.com/pcieslar/goforge-core/flash"
-	"github.com/pcieslar/goforge-core/form"
-	"github.com/pcieslar/goforge-core/router"
-	"github.com/pcieslar/goforge-core/view"
+	"github.com/pcieslar/goforge/core/flash"
+	"github.com/pcieslar/goforge/core/form"
+	"github.com/pcieslar/goforge/core/router"
+	"github.com/pcieslar/goforge/core/view"
 
 	"github.com/gorilla/sessions"
 	"github.com/jmoiron/sqlx"

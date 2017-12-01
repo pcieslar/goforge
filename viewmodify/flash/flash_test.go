@@ -10,9 +10,9 @@ import (
 	"github.com/pcieslar/goforge/lib/flight"
 	flashmod "github.com/pcieslar/goforge/viewmodify/flash"
 
-	"github.com/pcieslar/goforge-core/flash"
-	"github.com/pcieslar/goforge-core/session"
-	"github.com/pcieslar/goforge-core/view"
+	"github.com/pcieslar/goforge/core/flash"
+	"github.com/pcieslar/goforge/core/session"
+	"github.com/pcieslar/goforge/core/view"
 
 	"github.com/gorilla/sessions"
 )

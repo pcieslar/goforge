@@ -7,8 +7,8 @@ import (
 
 	"github.com/pcieslar/goforge/lib/flight"
 
-	flashlib "github.com/pcieslar/goforge-core/flash"
-	"github.com/pcieslar/goforge-core/view"
+	flashlib "github.com/pcieslar/goforge/core/flash"
+	"github.com/pcieslar/goforge/core/view"
 )
 
 // Modify adds the flashes to the view.

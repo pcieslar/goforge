@@ -6,7 +6,7 @@ import (
 
 	"github.com/pcieslar/goforge/middleware/logrequest"
 	"github.com/pcieslar/goforge/middleware/rest"
-	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge/core/router"
 	"github.com/gorilla/context"
 )
 

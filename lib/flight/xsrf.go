@@ -3,7 +3,7 @@ package flight
 import (
 	"sync"
 
-	"github.com/pcieslar/goforge-core/xsrf"
+	"github.com/pcieslar/goforge/core/xsrf"
 )
 
 var (

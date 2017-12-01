@@ -4,15 +4,15 @@ package env
 import (
 	"encoding/json"
 
-	"github.com/pcieslar/goforge-core/asset"
-	"github.com/pcieslar/goforge-core/email"
-	"github.com/pcieslar/goforge-core/form"
-	"github.com/pcieslar/goforge-core/generate"
-	"github.com/pcieslar/goforge-core/jsonconfig"
-	"github.com/pcieslar/goforge-core/server"
-	"github.com/pcieslar/goforge-core/session"
-	"github.com/pcieslar/goforge-core/storage/driver/mysql"
-	"github.com/pcieslar/goforge-core/view"
+	"github.com/pcieslar/goforge/core/asset"
+	"github.com/pcieslar/goforge/core/email"
+	"github.com/pcieslar/goforge/core/form"
+	"github.com/pcieslar/goforge/core/generate"
+	"github.com/pcieslar/goforge/core/jsonconfig"
+	"github.com/pcieslar/goforge/core/server"
+	"github.com/pcieslar/goforge/core/session"
+	"github.com/pcieslar/goforge/core/storage/driver/mysql"
+	"github.com/pcieslar/goforge/core/view"
 )
 
 // *****************************************************************************

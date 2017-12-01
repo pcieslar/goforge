@@ -7,7 +7,7 @@ import (
 
 	"github.com/pcieslar/goforge/model/note"
 	"github.com/pcieslar/goforge/model/user"
-	"github.com/pcieslar/goforge-core/storage/migration/mysql"
+	"github.com/pcieslar/goforge/core/storage/migration/mysql"
 
 	"github.com/jmoiron/sqlx"
 )

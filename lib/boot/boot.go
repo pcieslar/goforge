@@ -14,9 +14,9 @@ import (
 	"github.com/pcieslar/goforge/viewmodify/flash"
 	"github.com/pcieslar/goforge/viewmodify/uri"
 
-	"github.com/pcieslar/goforge-core/form"
-	"github.com/pcieslar/goforge-core/pagination"
-	"github.com/pcieslar/goforge-core/xsrf"
+	"github.com/pcieslar/goforge/core/form"
+	"github.com/pcieslar/goforge/core/pagination"
+	"github.com/pcieslar/goforge/core/xsrf"
 )
 
 // RegisterServices sets up all the web components.

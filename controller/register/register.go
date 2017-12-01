@@ -9,9 +9,9 @@ import (
 	"github.com/pcieslar/goforge/middleware/acl"
 	"github.com/pcieslar/goforge/model/user"
 
-	"github.com/pcieslar/goforge-core/form"
-	"github.com/pcieslar/goforge-core/passhash"
-	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge/core/form"
+	"github.com/pcieslar/goforge/core/passhash"
+	"github.com/pcieslar/goforge/core/router"
 )
 
 // Load the routes.
