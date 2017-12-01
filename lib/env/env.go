@@ -4,15 +4,15 @@ package env
 import (
 	"encoding/json"
 
-	"github.com/blue-jay/core/asset"
-	"github.com/blue-jay/core/email"
-	"github.com/blue-jay/core/form"
-	"github.com/blue-jay/core/generate"
-	"github.com/blue-jay/core/jsonconfig"
-	"github.com/blue-jay/core/server"
-	"github.com/blue-jay/core/session"
-	"github.com/blue-jay/core/storage/driver/mysql"
-	"github.com/blue-jay/core/view"
+	"github.com/pcieslar/goforge-core/asset"
+	"github.com/pcieslar/goforge-core/email"
+	"github.com/pcieslar/goforge-core/form"
+	"github.com/pcieslar/goforge-core/generate"
+	"github.com/pcieslar/goforge-core/jsonconfig"
+	"github.com/pcieslar/goforge-core/server"
+	"github.com/pcieslar/goforge-core/session"
+	"github.com/pcieslar/goforge-core/storage/driver/mysql"
+	"github.com/pcieslar/goforge-core/view"
 )
 
 // *****************************************************************************

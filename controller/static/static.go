@@ -6,10 +6,10 @@ import (
 	"os"
 	"path"
 
-	"github.com/blue-jay/blueprint/controller/status"
-	"github.com/blue-jay/blueprint/lib/flight"
+	"github.com/pcieslar/goforge/controller/status"
+	"github.com/pcieslar/goforge/lib/flight"
 
-	"github.com/blue-jay/core/router"
+	"github.com/pcieslar/goforge-core/router"
 )
 
 // Load the routes.

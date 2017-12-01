@@ -6,13 +6,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/blue-jay/blueprint/lib/env"
-	"github.com/blue-jay/blueprint/lib/flight"
-	flashmod "github.com/blue-jay/blueprint/viewmodify/flash"
+	"github.com/pcieslar/goforge/lib/env"
+	"github.com/pcieslar/goforge/lib/flight"
+	flashmod "github.com/pcieslar/goforge/viewmodify/flash"
 
-	"github.com/blue-jay/core/flash"
-	"github.com/blue-jay/core/session"
-	"github.com/blue-jay/core/view"
+	"github.com/pcieslar/goforge-core/flash"
+	"github.com/pcieslar/goforge-core/session"
+	"github.com/pcieslar/goforge-core/view"
 
 	"github.com/gorilla/sessions"
 )

@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/blue-jay/blueprint/lib/env"
-	"github.com/blue-jay/blueprint/lib/flight"
+	"github.com/pcieslar/goforge/lib/env"
+	"github.com/pcieslar/goforge/lib/flight"
 )
 
 // TestRace tests for race conditions.

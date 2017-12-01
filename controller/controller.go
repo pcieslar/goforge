@@ -2,14 +2,14 @@
 package controller
 
 import (
-	"github.com/blue-jay/blueprint/controller/about"
-	"github.com/blue-jay/blueprint/controller/debug"
-	"github.com/blue-jay/blueprint/controller/home"
-	"github.com/blue-jay/blueprint/controller/login"
-	"github.com/blue-jay/blueprint/controller/notepad"
-	"github.com/blue-jay/blueprint/controller/register"
-	"github.com/blue-jay/blueprint/controller/static"
-	"github.com/blue-jay/blueprint/controller/status"
+	"github.com/pcieslar/goforge/controller/about"
+	"github.com/pcieslar/goforge/controller/debug"
+	"github.com/pcieslar/goforge/controller/home"
+	"github.com/pcieslar/goforge/controller/login"
+	"github.com/pcieslar/goforge/controller/notepad"
+	"github.com/pcieslar/goforge/controller/register"
+	"github.com/pcieslar/goforge/controller/static"
+	"github.com/pcieslar/goforge/controller/status"
 )
 
 // LoadRoutes loads the routes for each of the controllers.

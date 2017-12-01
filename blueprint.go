@@ -5,11 +5,11 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/blue-jay/blueprint/lib/boot"
-	"github.com/blue-jay/blueprint/lib/env"
+	"github.com/pcieslar/goforge/lib/boot"
+	"github.com/pcieslar/goforge/lib/env"
 
-	"github.com/blue-jay/core/router"
-	"github.com/blue-jay/core/server"
+	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge-core/server"
 )
 
 // init sets runtime settings.

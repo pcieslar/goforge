@@ -5,13 +5,13 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/blue-jay/blueprint/lib/flight"
-	"github.com/blue-jay/blueprint/middleware/acl"
-	"github.com/blue-jay/blueprint/model/user"
+	"github.com/pcieslar/goforge/lib/flight"
+	"github.com/pcieslar/goforge/middleware/acl"
+	"github.com/pcieslar/goforge/model/user"
 
-	"github.com/blue-jay/core/form"
-	"github.com/blue-jay/core/passhash"
-	"github.com/blue-jay/core/router"
+	"github.com/pcieslar/goforge-core/form"
+	"github.com/pcieslar/goforge-core/passhash"
+	"github.com/pcieslar/goforge-core/router"
 )
 
 // Load the routes.

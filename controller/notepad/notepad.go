@@ -4,12 +4,12 @@ package notepad
 import (
 	"net/http"
 
-	"github.com/blue-jay/blueprint/lib/flight"
-	"github.com/blue-jay/blueprint/middleware/acl"
-	"github.com/blue-jay/blueprint/model/note"
+	"github.com/pcieslar/goforge/lib/flight"
+	"github.com/pcieslar/goforge/middleware/acl"
+	"github.com/pcieslar/goforge/model/note"
 
-	"github.com/blue-jay/core/pagination"
-	"github.com/blue-jay/core/router"
+	"github.com/pcieslar/goforge-core/pagination"
+	"github.com/pcieslar/goforge-core/router"
 )
 
 var (

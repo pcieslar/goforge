@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/blue-jay/blueprint/lib/env"
+	"github.com/pcieslar/goforge/lib/env"
 
-	"github.com/blue-jay/core/flash"
-	"github.com/blue-jay/core/form"
-	"github.com/blue-jay/core/router"
-	"github.com/blue-jay/core/view"
+	"github.com/pcieslar/goforge-core/flash"
+	"github.com/pcieslar/goforge-core/form"
+	"github.com/pcieslar/goforge-core/router"
+	"github.com/pcieslar/goforge-core/view"
 
 	"github.com/gorilla/sessions"
 	"github.com/jmoiron/sqlx"

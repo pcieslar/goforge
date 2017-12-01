@@ -4,19 +4,19 @@ package boot
 import (
 	"log"
 
-	"github.com/blue-jay/blueprint/controller"
-	"github.com/blue-jay/blueprint/lib/env"
-	"github.com/blue-jay/blueprint/lib/flight"
-	"github.com/blue-jay/blueprint/viewfunc/link"
-	"github.com/blue-jay/blueprint/viewfunc/noescape"
-	"github.com/blue-jay/blueprint/viewfunc/prettytime"
-	"github.com/blue-jay/blueprint/viewmodify/authlevel"
-	"github.com/blue-jay/blueprint/viewmodify/flash"
-	"github.com/blue-jay/blueprint/viewmodify/uri"
+	"github.com/pcieslar/goforge/controller"
+	"github.com/pcieslar/goforge/lib/env"
+	"github.com/pcieslar/goforge/lib/flight"
+	"github.com/pcieslar/goforge/viewfunc/link"
+	"github.com/pcieslar/goforge/viewfunc/noescape"
+	"github.com/pcieslar/goforge/viewfunc/prettytime"
+	"github.com/pcieslar/goforge/viewmodify/authlevel"
+	"github.com/pcieslar/goforge/viewmodify/flash"
+	"github.com/pcieslar/goforge/viewmodify/uri"
 
-	"github.com/blue-jay/core/form"
-	"github.com/blue-jay/core/pagination"
-	"github.com/blue-jay/core/xsrf"
+	"github.com/pcieslar/goforge-core/form"
+	"github.com/pcieslar/goforge-core/pagination"
+	"github.com/pcieslar/goforge-core/xsrf"
 )
 
 // RegisterServices sets up all the web components.

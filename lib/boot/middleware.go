@@ -4,9 +4,9 @@ package boot
 import (
 	"net/http"
 
-	"github.com/blue-jay/blueprint/middleware/logrequest"
-	"github.com/blue-jay/blueprint/middleware/rest"
-	"github.com/blue-jay/core/router"
+	"github.com/pcieslar/goforge/middleware/logrequest"
+	"github.com/pcieslar/goforge/middleware/rest"
+	"github.com/pcieslar/goforge-core/router"
 	"github.com/gorilla/context"
 )
 
