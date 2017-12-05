@@ -2,6 +2,18 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "github.com/denisenkom/go-mssqldb"
+  packages = ["."]
+  revision = "8a15d1bb0c8eaa4b870c016b312de5b50b493b4e"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/erikstmartin/go-testdb"
+  packages = ["."]
+  revision = "8d10e4a1bae52cd8b81ffdec3445890d6dccab3d"
+
+[[projects]]
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
   revision = "a0583e0143b1624142adab07e0e97fe106d99561"
@@ -39,6 +51,18 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  revision = "1c35d901db3da928c72a72d8458480cc9ade058f"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/jinzhu/now"
+  packages = ["."]
+  revision = "d939ba741945c047cac69c329c5fb0d6b4a06520"
+
+[[projects]]
+  branch = "master"
   name = "github.com/jmoiron/sqlx"
   packages = [".","reflectx"]
   revision = "99f3ad6d85ae53d0fecf788ab62d0e9734b3c117"
@@ -52,8 +76,14 @@
 [[projects]]
   branch = "master"
   name = "github.com/lib/pq"
-  packages = [".","oid"]
+  packages = [".","hstore","oid"]
   revision = "83612a56d3dd153a94a629cd64925371c9adad78"
+
+[[projects]]
+  name = "github.com/mattn/go-sqlite3"
+  packages = ["."]
+  revision = "ed69081a91fd053f17672236b0dd52ba7485e1a3"
+  version = "v1.4.0"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -64,12 +94,18 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
-  packages = ["bcrypt","blowfish"]
+  packages = ["bcrypt","blowfish","md4"]
   revision = "94eea52f7b742c7cbe0b03b22f0c4c8631ece122"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["context"]
+  revision = "a8b9294777976932365dabb6640cf1468d95c70f"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3c6037fae05c1313a99db8c902f73ebc1d3f536c65769b7d9f3f7a83eb61e096"
+  inputs-digest = "2d5b198108769db4c16bbce5ddcc4037e51b310303de3464e6c95770f713d804"
   solver-name = "gps-cdcl"
   solver-version = 1
