@@ -7,6 +7,7 @@ import (
 
 	"github.com/pcieslar/goforge/lib/flight"
 	"github.com/pcieslar/goforge/middleware/acl"
+	"github.com/pcieslar/goforge/model"
 	"github.com/pcieslar/goforge/model/user"
 
 	"github.com/pcieslar/goforge/core/form"
@@ -61,10 +62,10 @@ func Store(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get database result
-	_, noRows, err := user.ByEmail(c.DB, email)
+	_, err := user.ByEmail(email)
 
-	if noRows { // If success (no user exists with that email)
-		_, err = user.Create(c.DB, firstName, lastName, email, password)
+	if err == model.ErrNoResult { // If success (no user exists with that email)
+		err = user.Create(firstName, lastName, email, password)
 		// Will only error if there is a problem with the query
 		if err != nil {
 			c.FlashErrorGeneric(err)

@@ -28,7 +28,10 @@ func RegisterServices(config *env.Info) {
 	}
 
 	// Connect to the MySQL database
-	mysqlDB, _ := config.MySQL.Connect(true)
+	// mysqlDB, _ := config.MySQL.Connect(true)
+
+	// Connect to the Gorm database
+	mysqlDB, _ := config.GORM.Connect(true)
 
 	// Load the controller routes
 	controller.LoadRoutes()
@@ -58,7 +61,7 @@ func RegisterServices(config *env.Info) {
 	flight.StoreConfig(*config)
 
 	// Store the database connection in flight
-	flight.StoreDB(mysqlDB)
+	flight.StoreGORM(mysqlDB)
 
 	// Store the csrf information
 	flight.StoreXsrf(xsrf.Info{

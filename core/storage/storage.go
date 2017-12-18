@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 
 	"github.com/pcieslar/goforge/core/jsonconfig"
+	"github.com/pcieslar/goforge/core/storage/driver/gorm"
 	"github.com/pcieslar/goforge/core/storage/driver/mysql"
 	"github.com/pcieslar/goforge/core/storage/driver/postgresql"
 )
@@ -13,6 +14,7 @@ import (
 type Info struct {
 	MySQL      mysql.Info      `json:"MySQL"`
 	PostgreSQL postgresql.Info `json:"PostgreSQL"`
+	GORM       gorm.Info       `json:"GORM"`
 }
 
 // ParseJSON unmarshals bytes to structs.

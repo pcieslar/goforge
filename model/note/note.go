@@ -2,8 +2,10 @@
 package note
 
 import (
-	"database/sql"
 	"fmt"
+
+	database "github.com/pcieslar/goforge/core/storage/driver/gorm"
+	"github.com/pcieslar/goforge/model"
 
 	"github.com/go-sql-driver/mysql"
 )
@@ -13,8 +15,8 @@ var (
 	table = "note"
 )
 
-// Item defines the model.
-type Item struct {
+// Note defines the model.
+type Note struct {
 	ID        uint32         `db:"id"`
 	Name      string         `db:"name"`
 	UserID    uint32         `db:"user_id"`
@@ -23,116 +25,63 @@ type Item struct {
 	DeletedAt mysql.NullTime `db:"deleted_at"`
 }
 
-// Connection is an interface for making queries.
-type Connection interface {
-	Exec(query string, args ...interface{}) (sql.Result, error)
-	Get(dest interface{}, query string, args ...interface{}) error
-	Select(dest interface{}, query string, args ...interface{}) error
-}
-
 // ByID gets an item by ID.
-func ByID(db Connection, ID string, userID string) (Item, bool, error) {
-	result := Item{}
-	err := db.Get(&result, fmt.Sprintf(`
-		SELECT id, name, user_id, created_at, updated_at, deleted_at
-		FROM %v
-		WHERE id = ?
-			AND user_id = ?
-			AND deleted_at IS NULL
-		LIMIT 1
-		`, table),
-		ID, userID)
-	return result, err == sql.ErrNoRows, err
+func ByID(ID string, userID string) (Note, bool, error) {
+	result := Note{}
+	err := model.StandardError(database.SQL.Where("user_id = ?", userID).
+		First(&result).Error)
+	return result, err == model.ErrNoResult, err
 }
 
 // ByUserID gets all items for a user.
-func ByUserID(db Connection, userID string) ([]Item, bool, error) {
-	var result []Item
-	err := db.Select(&result, fmt.Sprintf(`
-		SELECT id, name, user_id, created_at, updated_at, deleted_at
-		FROM %v
-		WHERE user_id = ?
-			AND deleted_at IS NULL
-		`, table),
-		userID)
-	return result, err == sql.ErrNoRows, err
+func ByUserID(userID string) ([]Note, bool, error) {
+	var result []Note
+	err := model.StandardError(database.SQL.Where("user_id = ?", userID).
+		Find(&result).Error)
+	return result, err == model.ErrNoResult, err
 }
 
 // ByUserIDPaginate gets items for a user based on page and max variables.
-func ByUserIDPaginate(db Connection, userID string, max int, page int) ([]Item, bool, error) {
-	var result []Item
-	err := db.Select(&result, fmt.Sprintf(`
-		SELECT id, name, user_id, created_at, updated_at, deleted_at
-		FROM %v
-		WHERE user_id = ?
-			AND deleted_at IS NULL
-		LIMIT %v OFFSET %v
-		`, table, max, page),
-		userID)
-	return result, err == sql.ErrNoRows, err
+func ByUserIDPaginate(userID string, max int, page int) ([]Note, bool, error) {
+	var result []Note
+	err := model.StandardError(database.SQL.Limit(max).Offset(page).Where("user_id = ?", userID).
+		Find(&result).Error)
+	return result, err == model.ErrNoResult, err
 }
 
 // ByUserIDCount counts the number of items for a user.
-func ByUserIDCount(db Connection, userID string) (int, error) {
+func ByUserIDCount(userID string) (int, error) {
 	var result int
-	err := db.Get(&result, fmt.Sprintf(`
-		SELECT count(*)
-		FROM %v
-		WHERE user_id = ?
-			AND deleted_at IS NULL
-		`, table),
-		userID)
+	err := model.StandardError(database.SQL.Where("user_id = ?", userID).
+		Count(&result).Error)
 	return result, err
 }
 
 // Create adds an item.
-func Create(db Connection, name string, userID string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`
+func Create(name string, userID string) error {
+	return model.StandardError(database.SQL.Exec(fmt.Sprintf(`
 		INSERT INTO %v
 		(name, user_id)
 		VALUES
 		(?,?)
 		`, table),
-		name, userID)
-	return result, err
+		name, userID).Error)
 }
 
 // Update makes changes to an existing item.
-func Update(db Connection, name string, ID string, userID string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`
-		UPDATE %v
-		SET name = ?
-		WHERE id = ?
-			AND user_id = ?
-			AND deleted_at IS NULL
-		LIMIT 1
-		`, table),
-		name, ID, userID)
-	return result, err
+func Update(name string, ID string, userID string) error {
+	return model.StandardError(database.SQL.Model(Note{}).Where("user_id = ?", userID).
+		Update("name", name).Error)
 }
 
 // DeleteHard removes an item.
-func DeleteHard(db Connection, ID string, userID string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`
-		DELETE FROM %v
-		WHERE id = ?
-			AND user_id = ?
-			AND deleted_at IS NULL
-		`, table),
-		ID, userID)
-	return result, err
+func DeleteHard(ID string, userID string) error {
+	return model.StandardError(database.SQL.Unscoped().Where("user_id = ?", userID).
+		Where("id = ?", ID).Delete(Note{}).Error)
 }
 
 // DeleteSoft marks an item as removed.
-func DeleteSoft(db Connection, ID string, userID string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`
-		UPDATE %v
-		SET deleted_at = NOW()
-		WHERE id = ?
-			AND user_id = ?
-			AND deleted_at IS NULL
-		LIMIT 1
-		`, table),
-		ID, userID)
-	return result, err
+func DeleteSoft(ID string, userID string) error {
+	return model.StandardError(database.SQL.Where("user_id = ?", userID).
+		Where("id = ?", ID).Delete(Note{}).Error)
 }

@@ -35,13 +35,13 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	// Create a pagination instance with a max of 10 results.
 	p := pagination.New(r, 10)
 
-	items, _, err := note.ByUserIDPaginate(c.DB, c.UserID, p.PerPage, p.Offset)
+	items, _, err := note.ByUserIDPaginate(c.UserID, p.PerPage, p.Offset)
 	if err != nil {
 		c.FlashErrorGeneric(err)
-		items = []note.Item{}
+		items = []note.Note{}
 	}
 
-	count, err := note.ByUserIDCount(c.DB, c.UserID)
+	count, err := note.ByUserIDCount(c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 	}
@@ -73,7 +73,7 @@ func Store(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err := note.Create(c.DB, r.FormValue("name"), c.UserID)
+	err := note.Create(r.FormValue("name"), c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 		Create(w, r)
@@ -88,7 +88,7 @@ func Store(w http.ResponseWriter, r *http.Request) {
 func Show(w http.ResponseWriter, r *http.Request) {
 	c := flight.Context(w, r)
 
-	item, _, err := note.ByID(c.DB, c.Param("id"), c.UserID)
+	item, _, err := note.ByID(c.Param("id"), c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 		c.Redirect(uri)
@@ -104,7 +104,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 func Edit(w http.ResponseWriter, r *http.Request) {
 	c := flight.Context(w, r)
 
-	item, _, err := note.ByID(c.DB, c.Param("id"), c.UserID)
+	item, _, err := note.ByID(c.Param("id"), c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 		c.Redirect(uri)
@@ -126,7 +126,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err := note.Update(c.DB, r.FormValue("name"), c.Param("id"), c.UserID)
+	err := note.Update(r.FormValue("name"), c.Param("id"), c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 		Edit(w, r)
@@ -141,7 +141,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 func Destroy(w http.ResponseWriter, r *http.Request) {
 	c := flight.Context(w, r)
 
-	_, err := note.DeleteSoft(c.DB, c.Param("id"), c.UserID)
+	err := note.DeleteSoft(c.Param("id"), c.UserID)
 	if err != nil {
 		c.FlashErrorGeneric(err)
 	} else {

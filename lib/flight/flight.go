@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"github.com/pcieslar/goforge/lib/env"
+	"github.com/pcieslar/goforge/lib/gorm"
 
 	"github.com/pcieslar/goforge/core/flash"
 	"github.com/pcieslar/goforge/core/form"
@@ -21,6 +22,7 @@ import (
 var (
 	configInfo env.Info
 	dbInfo     *sqlx.DB
+	gormInfo   *gorm.DB
 
 	mutex sync.RWMutex
 )
@@ -38,6 +40,14 @@ func StoreConfig(ci env.Info) {
 func StoreDB(db *sqlx.DB) {
 	mutex.Lock()
 	dbInfo = db
+	mutex.Unlock()
+}
+
+// StoreDB stores the database connection settings so controller functions can
+// access them safely.
+func StoreGORM(db *gorm.DB) {
+	mutex.Lock()
+	gormInfo = db
 	mutex.Unlock()
 }
 
@@ -85,6 +95,7 @@ func Reset() {
 	mutex.Lock()
 	configInfo = env.Info{}
 	dbInfo = &sqlx.DB{}
+	gormInfo = &gorm.DB{}
 	mutex.Unlock()
 }
 

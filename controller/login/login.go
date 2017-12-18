@@ -6,6 +6,7 @@ import (
 
 	"github.com/pcieslar/goforge/lib/flight"
 	"github.com/pcieslar/goforge/middleware/acl"
+	"github.com/pcieslar/goforge/model"
 	"github.com/pcieslar/goforge/model/user"
 
 	"github.com/pcieslar/goforge/core/flash"
@@ -46,16 +47,14 @@ func Store(w http.ResponseWriter, r *http.Request) {
 	password := r.FormValue("password")
 
 	// Get database result
-	result, noRows, err := user.ByEmail(c.DB, email)
+	result, err := user.ByEmail(email)
 
 	// Determine if user exists
-	if noRows {
-		c.FlashWarning("Password is incorrect")
-	} else if err != nil {
+	if err != nil && err != model.ErrNoResult {
 		// Display error message
 		c.FlashErrorGeneric(err)
 	} else if passhash.MatchString(result.Password, password) {
-		if result.StatusID != 1 {
+		if err == model.ErrNoResult {
 			// User inactive and display inactive message
 			c.FlashNotice("Account is inactive so login is disabled.")
 		} else {
