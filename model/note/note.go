@@ -25,6 +25,11 @@ type Note struct {
 	DeletedAt mysql.NullTime `db:"deleted_at"`
 }
 
+// set Note's table name to be `note`
+func (Note) TableName() string {
+	return table
+}
+
 // ByID gets an item by ID.
 func ByID(ID string, userID string) (Note, bool, error) {
 	result := Note{}
@@ -52,7 +57,7 @@ func ByUserIDPaginate(userID string, max int, page int) ([]Note, bool, error) {
 // ByUserIDCount counts the number of items for a user.
 func ByUserIDCount(userID string) (int, error) {
 	var result int
-	err := model.StandardError(database.SQL.Where("user_id = ?", userID).
+	err := model.StandardError(database.SQL.Model(Note{}).Where("user_id = ?", userID).
 		Count(&result).Error)
 	return result, err
 }
